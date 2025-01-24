@@ -126,8 +126,3 @@ for imgs, targets in val_loader:
    export ROBOFLOW_API_KEY=your_api_key_here
    ```
 3. Clone this repository and run the script.
-
-## Usage
-1. Download your dataset from Roboflow in COCO format.
-2. Fine-tune the DETR model on your dataset using the provided training pipeline.
-3. Evaluate the model on a validation dataset and save the results.
