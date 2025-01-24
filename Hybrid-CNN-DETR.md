@@ -1,3 +1,5 @@
+####SRC CODE:
+"""
 import torch
 import torchvision.transforms as T
 from transformers import DetrForObjectDetection, DetrImageProcessor
@@ -95,3 +97,4 @@ for imgs, targets in val_loader:
         outputs = model(pixel_values=pixel_values)
 
     print(outputs.logits.argmax(-1))  # Predicted class labels
+"""
