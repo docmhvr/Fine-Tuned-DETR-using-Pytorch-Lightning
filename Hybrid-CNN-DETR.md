@@ -1,5 +1,15 @@
-####SRC CODE:
-"""
+# Powerline Fault Detection using DETR
+
+## Overview
+This repository contains an implementation of object detection and classification for powerline components using the DETR (DEtection TRansformer) model. The model is fine-tuned to detect and classify faults in powerline components, including insulators, towers, broken insulators, and vegetation presence. The dataset used for training is managed through Roboflow.
+
+## Features
+- Fine-tuning the pre-trained DETR model with a ResNet-50 backbone.
+- Dataset management and annotation integration using Roboflow.
+- Training and evaluation pipelines for object detection tasks.
+
+## Source Code
+```python
 import torch
 import torchvision.transforms as T
 from transformers import DetrForObjectDetection, DetrImageProcessor
@@ -97,4 +107,27 @@ for imgs, targets in val_loader:
         outputs = model(pixel_values=pixel_values)
 
     print(outputs.logits.argmax(-1))  # Predicted class labels
-"""
+```
+
+## Requirements
+- Python 3.7+
+- PyTorch
+- Transformers (Hugging Face)
+- Roboflow
+- torchvision
+
+## Setup
+1. Install dependencies:
+   ```bash
+   pip install torch torchvision transformers roboflow
+   ```
+2. Set up the `ROBOFLOW_API_KEY` environment variable with your Roboflow API key:
+   ```bash
+   export ROBOFLOW_API_KEY=your_api_key_here
+   ```
+3. Clone this repository and run the script.
+
+## Usage
+1. Download your dataset from Roboflow in COCO format.
+2. Fine-tune the DETR model on your dataset using the provided training pipeline.
+3. Evaluate the model on a validation dataset and save the results.
